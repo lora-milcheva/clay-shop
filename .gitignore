@@ -24,3 +24,4 @@ yarn-error.log*
 
 sass/.sass-cache
 .idea
+.idea/workspace.xml

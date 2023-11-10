@@ -2,7 +2,7 @@
 	display: grid;
 	justify-content: center;
 
-	@include respond ('phone') {
+	@include respond('phone') {
 
 	}
 
@@ -47,25 +47,39 @@
 	}
 
 	&__link {
+		position: relative;
 		display: inline-block;
-		padding: .5rem 2rem;
+		padding: .5rem 2rem 3rem;
 		width: 100%;
 		height: 100%;
 		transition: all $transition-main;
-		text-transform: lowercase;
-		//font-size: $font-size-sm;
-		border-radius: $border-radius-tiny $border-radius-tiny 0 0;
-		line-height: 2;
 
-		&:hover,
-		&:focus {
-			background-color: $color-primary-80;
-			color: $color-white;
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			visibility: hidden;
+			opacity: 0;
+			display: inline-block;
+			width: .24rem;
+			height: 2rem;
+			background-color: $color-grey-medium;
+			transition: all $transition-main;
 		}
 
-		&.active {
-			background-color: $color-primary;
-			color: $color-white;
+		&.active,
+		&:hover,
+		&:focus {
+			&:after {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		&.active:after {
+			background-color: $color-dark;
 		}
 
 		@include respond('phone') {
