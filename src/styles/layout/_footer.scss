@@ -1,0 +1,72 @@
+.footer {
+	background-color: $color-white;
+
+	&__bottom {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		padding: 3rem 10rem;
+	}
+
+
+	&__info {
+		color: $color-grey-dark;
+	}
+
+	&__links {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	&__links-block {
+
+		&--name {
+			font-size: 2.4rem;
+		}
+
+		&--list {
+		}
+
+		&--item {
+			list-style: none;
+			padding: .4rem 0;
+		}
+
+		&--link {
+			color: $color-grey-dark;
+		}
+	}
+
+	.navigation {
+		position: relative;
+		border-bottom: 1px solid $color-grey-light;
+		padding: 2rem 0;
+
+		&__link {
+			padding: .5rem 2rem;
+			position: relative;
+
+			&:after {
+				bottom: 45%;
+				width: 70%;
+				height: .1rem;
+			}
+
+			&.active,
+			&:hover,
+			&:focus {
+				&:after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			&.active:after {
+				background-color: $color-dark;
+			}
+
+			@include respond('phone') {
+
+			}
+		}
+	}
+}

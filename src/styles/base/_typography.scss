@@ -8,7 +8,7 @@ body {
     font-weight: 400;
     color: $color-text-default;
     font-size: 1.7rem;
-    line-height: 1.7;
+    line-height: 1.5;
 
     @include respond(phone) {
         line-height: 1.4;
