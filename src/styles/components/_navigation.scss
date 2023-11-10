@@ -69,9 +69,7 @@
 		}
 
 		@include respond('phone') {
-			font-size: inherit;
-			padding: 1.5rem 0;
-			border-radius: $border-radius-tiny;
+
 		}
 	}
 }
