@@ -1,0 +1,63 @@
+// COLORS
+//$color-primary: #aba364;
+$color-primary: #4E4875;
+$color-primary-60: rgba($color-primary, 0.6);
+$color-primary-80: rgba($color-primary, 0.8);
+
+$color-primary: #b7a57e;
+$color-primary-60: rgba($color-primary, 0.6);
+$color-primary-80: rgba($color-primary, 0.8);
+
+$color-light-accent: #31bfa5;
+$color-light-accent-60: rgba($color-light-accent, 0.6);
+$color-light-accent-80: rgba($color-light-accent, 0.8);
+
+$color-primary: #5d5a72;
+$color-primary-60: rgba($color-primary, 0.6);
+$color-primary-80: rgba($color-primary, 0.8);
+
+$color-light-background: #e1dfd6;
+$color-light-background-60: rgba($color-light-background, 0.6);
+$color-light-background-80: rgba($color-light-background, 0.8);
+
+
+$color-white: #fff;
+$color-grey-light-bg: #f4f1de;
+
+$color-grey-light: #eee;
+$color-grey-medium: #ababab;
+$color-grey-dark: #504444;
+$color-dark: #000;
+
+// TEXT COLOR
+$color-text-default: lighten($color-primary, 10);
+$color-primary: #b7a57e;
+
+// HEADER COLOR
+//$color-header: #fff9f0;
+$color-header: $color-primary;
+
+//FIXED HEIGHTS
+$header-height: 6rem;
+
+// MARGINS
+$content-margin-top: 10rem;
+
+
+// FONT SIZE
+$font-size-lg: 1.9rem; // 17px
+$font-size-sm: 1.4rem; // 12px
+
+
+//TRANSITION TIME
+$transition-main: .5s;
+$transition-fast: .2s;
+
+// BORDER_RADIUS
+$hasRoundCorners: true;
+$border-radius-tiny: .3rem;
+$border-radius-small: .7rem;
+$border-radius-big: 1rem;
+
+// SHADOWS
+$box-shadow: 0.1rem 0.1rem 0.35rem rgba($color-dark, .15);

@@ -1,0 +1,48 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: $border-radius-tiny;
+    transition: all .2s;
+    position: relative;
+    font-size: $font-size-sm;
+
+    //Change for the <button> element
+    //border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: darken($color-primary, 5%);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &--primary {
+    color: $color-white;
+    background-color: $color-primary-dark;
+  }
+
+  &.xs {
+    padding: .5rem .8rem;
+    font-size: 1rem;
+    border-radius: $border-radius-tiny;
+  }
+
+  &.sm {
+    padding: .8rem 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  &.lg {
+    padding: 2.5rem 5rem;
+  }
+}
+
+

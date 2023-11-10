@@ -1,0 +1,21 @@
+.header {
+	position: sticky;
+	top: 0;
+	background-color: $color-white;
+	padding: 2rem 3rem;
+
+	&__top {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		justify-content: end;
+		align-items: stretch;
+	}
+
+	&__social-media {
+		justify-self: center;
+	}
+
+	&__cart {
+		justify-self: end;
+	}
+}
