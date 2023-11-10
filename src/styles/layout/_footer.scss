@@ -7,8 +7,21 @@
 		padding: 3rem 10rem;
 	}
 
-
 	&__info {
+
+	}
+
+	&__logo {
+		font-size: 2.4rem;
+		margin-bottom: 1rem;
+
+		svg {
+			height: 2rem;
+			margin-right: .7rem;
+		}
+	}
+
+	&__text {
 		color: $color-grey-dark;
 	}
 
