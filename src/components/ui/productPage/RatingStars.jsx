@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Rating as ReactRating } from 'react-simple-star-rating'
 
-const Rating = ({ isReadonly, ratingValue }) => {
+const RatingStars = ({ isReadonly, ratingValue }) => {
     const [rating, setRating] = useState(0)
 
     useEffect(() => {
@@ -25,4 +25,4 @@ const Rating = ({ isReadonly, ratingValue }) => {
     )
 }
 
-export default Rating
+export default RatingStars

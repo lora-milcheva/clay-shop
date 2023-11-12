@@ -23,7 +23,9 @@ const TabGroup = ({ tabsData }) => {
             </div>
 
             {tabsData.map(el =>
-                <div id={el.id} className={activeTab === el.id ? "tab__content visible" : "tab__content"}>
+                <div id={el.id}
+                     className={activeTab === el.id ? "tab__content visible" : "tab__content"}
+                     key={el.content + 'key'}>
                     <p>{el.content}</p>
                 </div>
             )}

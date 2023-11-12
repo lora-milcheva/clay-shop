@@ -1,9 +1,11 @@
-import Rating from "../Review";
 import TabGroup from "../TabGroup";
+import ProductSizes from "./ProductSizes";
+import RatingStars from "./RatingStars";
+import ProductColorOptions from "./ProductColorOptions";
 
 
 const ProductInfo = (props) => {
-    const { name, label, description } = props.selectedProduct
+    const { name, label, description, sizes } = props.selectedProduct
     const { ratingValue, reviewsCount } = props.rating
     const brandDescription = props.brandDescription
 
@@ -33,11 +35,17 @@ const ProductInfo = (props) => {
             <h1 className='name'>{name}</h1>
 
             <div className='product-info__rating'>
-                <Rating isReadonly={true} ratingValue={ratingValue}/>
+                <RatingStars isReadonly={true} ratingValue={ratingValue}/>
                 <span className='product-info__reviews-count'>{reviewsCount} reviews</span>
             </div>
 
             <TabGroup tabsData={tabsData}/>
+
+            <div className='product-info__options' >
+                <ProductSizes sizes={sizes}/>
+                <ProductColorOptions />
+            </div>
+
         </div>
     )
 }

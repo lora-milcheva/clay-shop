@@ -5,28 +5,42 @@
     text-transform: uppercase;
     padding: 1rem 2rem;
     display: inline-block;
-    border-radius: $border-radius-tiny;
+    border-radius: $border-radius-small;
     transition: all .2s;
     position: relative;
     font-size: $font-size-sm;
+    border: 1px solid transparent;
+
 
     //Change for the <button> element
     //border: none;
     cursor: pointer;
   }
 
-  &:hover {
-    background-color: darken($color-primary, 5%);
-  }
 
   &:active,
   &:focus {
     outline: none;
   }
 
+  &--default {
+    background-color: $color-white;
+    border: 1px solid $color-grey-medium;
+
+    &:hover {
+      color: $color-white;
+      background-color: darken($color-primary, 5%);
+      border: 1px solid $color-primary;
+    }
+  }
+
   &--primary {
     color: $color-white;
-    background-color: $color-primary-dark;
+    background-color: $color-primary;
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
   }
 
   &.xs {

@@ -11,6 +11,7 @@
 			padding: 1rem 3rem;
 			border-bottom: 1px solid $color-grey-light;
 			flex-grow: 1;
+			transition: $transition-main;
 
 			&.active {
 				color: $color-primary;

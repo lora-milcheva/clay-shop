@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const ProductGallery = (props) => {
-    const { images } = props
+const ProductGallery = ({ images }) => {
     const [selectedImage, setSelectedImage] = useState();
     const selectedImageRef = useRef()
 

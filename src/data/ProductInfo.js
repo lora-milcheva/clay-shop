@@ -11,7 +11,7 @@ const PRODUCTS = [
                 colorHEX: '#1B2437',
                 price: '1315.00',
                 images: ['../images/dress_02_01.jpg', '../images/dress_02_02.jpg'],
-                quantity: [{ XS: 12 }, { S: 5 }, { M: 3 }],
+                sizes: [{ XS: 12 }, { S: 5 }, { M: 3 }],
             },
             {
                 id: '456',
@@ -23,7 +23,7 @@ const PRODUCTS = [
                 colorHEX: '#127681',
                 price: '1330.00',
                 images: ['../images/dress_01_01.jpg', '../images/dress_01_02.jpg', '../images/dress_01_03.jpg', '../images/dress_01_04.jpg'],
-                quantity: [{ S: 8 }, { M: 2 }],
+                sizes: [{ S: 8 }, { M: 2 }],
             },
             {
                 id: '789',
@@ -33,7 +33,7 @@ const PRODUCTS = [
                 colorHEX: '#32E0C4',
                 price: '1355.00',
                 images: ['../images/dress_03_01.jpg', '../images/dress_03_02.jpg'],
-                quantity: [{ S: 8 }, { M: 2 }],
+                sizes: [{ S: 8 }, { M: 2 }],
             },
         ],
         reviews: [

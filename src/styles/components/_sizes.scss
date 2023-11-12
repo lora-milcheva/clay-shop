@@ -1,0 +1,15 @@
+.sizes {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+
+		button {
+			color: $color-primary;
+		}
+	}
+
+	&__options {
+		display: flex;
+		gap: 1rem;
+	}
+}
