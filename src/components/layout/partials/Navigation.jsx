@@ -6,7 +6,7 @@ const Navigation = () => {
         <div className="navigation">
             <ul className='navigation__list'>
                 <li className="navigation__item">
-                    <NavLink to='/' className="navigation__link" active>Home</NavLink>
+                    <NavLink to='/' className="navigation__link" active='true'>Home</NavLink>
                 </li>
                 <li className="navigation__item">
                     <NavLink to='/shop' className="navigation__link" >Shop</NavLink>

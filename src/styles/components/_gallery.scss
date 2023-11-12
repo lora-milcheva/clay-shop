@@ -1,0 +1,36 @@
+.gallery {
+
+	&__selected {
+		overflow: hidden;
+		margin-bottom: .5rem;
+		transition: $transition-fast;
+
+		img {
+		}
+	}
+
+	&__thumbnails {
+		display: flex;
+		gap: 1rem;
+	}
+
+	&__thumbnail {
+		overflow: hidden;
+		width: 6rem;
+		height: 6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: $border-radius-small;
+		border: 1px solid $color-white;
+		//transition: $transition-fast;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.selected {
+			border: 1px solid $color-grey-medium;
+		}
+	}
+}

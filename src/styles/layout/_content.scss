@@ -1,33 +1,4 @@
 .content {
-	width: 70%;
-	display: grid;
-	grid-template-columns: [sidebar-start] minmax(20rem, 25vw) [sidebar-end full-start] 1fr [full-end];
-	grid-gap: 7rem;
-	margin: auto {
-		top: $content-margin-top;
-	};
-
-	@include respond('tab-land'){
-		width: 80%;
-		grid-gap: 9rem;
-	}
-
-	@include respond('tab-port'){
-		width: 88%;
-	}
-
-	@include respond('phone'){
-		grid-template-columns: auto;
-		grid-gap: 0;
-	}
-}
-
-#skills {
-	.skill {
-		&__name {
-			@include respond('phone-sm') {
-				font-size: 1.4rem;
-			}
-		}
-	}
+	min-height: 65vh;
+	padding: 5rem 10vw;
 }

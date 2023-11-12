@@ -1,5 +1,5 @@
-import Navigation from "./Navigation";
-import TopHeader from "./TopHeader";
+import Navigation from "./partials/Navigation";
+import TopHeader from "./partials/TopHeader";
 
 const Header = () => {
     return (

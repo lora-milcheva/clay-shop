@@ -3,6 +3,7 @@
 	top: 0;
 	background-color: $color-white;
 	padding: 2rem 3rem 0;
+	z-index: $header-z-index;
 
 	&__top {
 		display: grid;
@@ -22,9 +23,17 @@
 
 	&__social-media {
 		justify-self: center;
+		display: flex;
+		gap: 3rem;
+
+		svg {
+			height: 1.5rem;
+		}
 	}
 
 	&__cart {
 		justify-self: end;
+		display: flex;
+		gap: 1.3rem;
 	}
 }

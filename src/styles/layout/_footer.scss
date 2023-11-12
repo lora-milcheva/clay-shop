@@ -1,5 +1,6 @@
 .footer {
 	background-color: $color-white;
+	z-index: $footer-z-index;
 
 	&__bottom {
 		display: grid;

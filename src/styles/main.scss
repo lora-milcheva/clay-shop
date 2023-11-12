@@ -1,21 +1,29 @@
+//@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
 // Abstracts
-@import "src/styles/abstracts/mixins";
-@import "src/styles/abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
 // Base
-@import "src/styles/base/animations";
-@import "src/styles/base/base";
-@import "src/styles/base/typography";
-@import "src/styles/base/utilities";
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
 
 // Components
-@import "src/styles/components/navigation";
-@import "src/styles/components/button";
-@import "src/styles/components/card";
+@import "components/spinner";
+@import "components/navigation";
+@import "components/button";
+@import "components/card";
+@import "components/product";
+@import "components/gallery";
+@import "components/label";
+@import "components/review-stars";
 
 // Layout
-@import "src/styles/layout/header";
-@import "src/styles/layout/footer";
+@import "layout/header";
+@import "layout/content";
+@import "layout/footer";
 
 // Pages
 
