@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { loadData } from "../data/ProductInfo";
+import { loadData } from "../../data/ProductInfo";
 
-import Spinner from "../components/common/Spinner";
-import ProductInfo from "../components/productPage/ProductInfo";
-import ProductGallery from "../components/productPage/ProductGallery";
-import ProductReviews from "../components/productPage/ProductReviews";
+import Spinner from "../ui/Spinner";
+import ProductInfo from "../ui/productPage/ProductInfo";
+import ProductGallery from "../ui/productPage/ProductGallery";
+import ProductReviews from "../ui/productPage/ProductReviews";
 
 
 const ProductPage = () => {
@@ -44,14 +44,19 @@ const ProductPage = () => {
             rating += Number(review.rating)
         })
 
-        return rating / reviews.length
+        return {
+            ratingValue: rating / reviews.length,
+            reviewsCount: reviews.length
+        }
     }
 
     return (
         <div className='product'>
             <div className='product__data'>
                 <ProductGallery images={selectedProduct.images}/>
-                <ProductInfo selectedProduct={selectedProduct} brandDescription={brandDescription} ratingValue={calculateRating()}/>
+                <ProductInfo selectedProduct={selectedProduct}
+                             brandDescription={brandDescription}
+                             rating={calculateRating()}/>
             </div>
 
             <ProductReviews reviews={reviews}/>

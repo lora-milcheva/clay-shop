@@ -12,7 +12,6 @@ const Rating = ({ isReadonly, ratingValue }) => {
         setRating(rate)
     }
 
-
     return (
         <ReactRating
             initialValue={rating}

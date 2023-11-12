@@ -1,5 +1,5 @@
 .product {
-	&__data{
+	&__data {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 3rem;
@@ -25,4 +25,14 @@
 	.name {
 		line-height: 1.2;
 	}
+
+	&__rating {
+		display: flex;
+		align-items: center;
+	}
+
+	&__reviews-count {
+		margin-left: 1rem;
+	}
+
 }

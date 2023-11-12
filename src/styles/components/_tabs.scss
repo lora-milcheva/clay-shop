@@ -1,0 +1,33 @@
+.tabs {
+	margin: 2rem 0;
+
+	.tab {
+		&__navigation {
+			display: flex;
+			margin-bottom: 2rem;
+		}
+
+		&__link {
+			padding: 1rem 3rem;
+			border-bottom: 1px solid $color-grey-light;
+			flex-grow: 1;
+
+			&.active {
+				color: $color-primary;
+				border-bottom: 1px solid $color-primary;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&__content {
+			display: none;
+
+			&.visible {
+				display: block;
+			}
+		}
+	}
+}

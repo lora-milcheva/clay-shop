@@ -1,6 +1,6 @@
-import Navigation from "./partials/Navigation";
-import { FOOTER_INFO, FOOTER_TEXT } from "../../data/footerInfo";
-import FooterLinksBlock from "./partials/FooterLinksBlock";
+import Navigation from "../../navigation/Navigation";
+import { FOOTER_INFO, FOOTER_TEXT } from "../../../data/footerInfo";
+import FooterLinksBlock from "./FooterLinksBlock";
 
 const Footer = () => {
     return (
