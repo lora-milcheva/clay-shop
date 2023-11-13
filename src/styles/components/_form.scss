@@ -16,15 +16,22 @@
 		gap: 2rem;
 	}
 
-	& .input-container {
+	& .form-control {
 		display: grid;
 		flex-grow: 1;
+		align-content: start;
 		margin-bottom: 2rem;
+		height: auto;
+		min-height: 8rem;
 
-		& .input {
-			padding: 1rem 2rem;
+		& input, textarea {
+			padding: 1.3rem 2rem;
 			border: 1px solid $color-grey-light;
 			border-radius: $border-radius-big;
+
+			&::placeholder {
+				color: $color-grey-medium;
+			}
 		}
 	}
 }

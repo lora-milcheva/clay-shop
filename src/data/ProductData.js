@@ -66,6 +66,25 @@ const loadProductData = (productId) => {
     });
 }
 
+const addReview = (productId, review) => {
+    const product = PRODUCTS.find(p => p.productGroupIds.includes(productId))
+
+    console.log(product)
+
+    product.reviews.push(review)
+
+    return new Promise((resolve, reject) => {
+        if (product.length === 0) {
+            reject('This product does not exist!')
+        }
+        setTimeout(() => {
+            resolve(product);
+        }, 1000);
+    });
+
+}
+
 export {
-    loadProductData
+    loadProductData,
+    addReview
 }

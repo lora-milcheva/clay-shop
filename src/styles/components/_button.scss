@@ -23,11 +23,17 @@
     outline: none;
   }
 
+  &:disabled {
+    background-color: $color-white;
+    border: 1px solid $color-grey-medium;
+    color: $color-grey-medium;
+  }
+
   &--default {
     background-color: $color-white;
     border: 1px solid $color-grey-medium;
 
-    &:hover {
+    &:hover:enabled {
       color: $color-white;
       background-color: darken($color-primary, 5%);
       border: 1px solid $color-primary;
@@ -39,7 +45,7 @@
     border: 1px solid $color-primary;
     color: $color-primary;
 
-    &:hover {
+    &:hover:enabled {
       color: $color-white;
       background-color: darken($color-primary, 5%);
       border: 1px solid $color-primary;
