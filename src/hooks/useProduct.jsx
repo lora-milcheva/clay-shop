@@ -40,7 +40,6 @@ const useProduct = () => {
         setSelectedSize(size)
     }
 
-
     const calculateRating = () => {
         let rating = 0
         const reviews = productData?.reviews
@@ -52,10 +51,10 @@ const useProduct = () => {
         }
     }
 
-
     return {
         isLoading,
         errorMessage,
+        setSelectedProduct,
         productData,
         selectedProduct,
         calculateRating,

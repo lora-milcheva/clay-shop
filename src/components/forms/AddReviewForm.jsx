@@ -3,10 +3,13 @@ import useInput from "../../hooks/useInput";
 import { addReview } from "../../data/ProductData";
 
 import RatingStars from "../ui/productPage/RatingStars";
+import useProduct from "../../hooks/useProduct";
 
 
 const AddReviewForm = () => {
     const { id } = useParams()
+
+    const {setSelectedProduct} = useProduct()
 
     let ratingValue = 4
     const getRatingData = (value) => {
@@ -66,6 +69,7 @@ const AddReviewForm = () => {
         const saveReview = async () => {
             const result = await addReview(id, review)
             console.log(result)
+            setSelectedProduct(result)
         }
 
         saveReview()

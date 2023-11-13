@@ -67,6 +67,8 @@ const loadProductData = (productId) => {
 }
 
 const addReview = (productId, review) => {
+
+    console.log(PRODUCTS)
     const product = PRODUCTS.find(p => p.productGroupIds.includes(productId))
 
     console.log(product)
