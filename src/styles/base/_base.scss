@@ -39,6 +39,11 @@ body {
 	background-color: $color-grey-light-bg;
 }
 
+input,
+textarea {
+	outline: none;
+}
+
 button {
 	background: none;
 	border: none;

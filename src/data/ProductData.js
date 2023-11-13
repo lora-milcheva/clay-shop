@@ -40,7 +40,7 @@ const PRODUCTS = [
             {
                 author: 'John Doe',
                 email: 'john.doe@gmail.com',
-                message: 'Example review',
+                text: 'Example review',
                 rating: 4
             },
             {

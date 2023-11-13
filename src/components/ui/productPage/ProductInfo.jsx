@@ -42,10 +42,12 @@ const ProductInfo = (props) => {
                     <img src='../assets/icons/add_to_favorite_pink.png' alt='add to favourites icon'/>
                 </button>
             </div>
-            <h1 className='name'>{name}</h1>
+            <h1 className='heading primary name'>{name}</h1>
 
             <div className='product-info__rating'>
-                <RatingStars isReadonly={true} ratingValue={ratingValue}/>
+                <RatingStars isReadonly={true}
+                             ratingValue={ratingValue}
+                             allowFraction={true}/>
                 <span className='product-info__reviews-count'>{reviewsCount} reviews</span>
             </div>
 

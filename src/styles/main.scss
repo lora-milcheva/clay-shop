@@ -11,11 +11,12 @@
 @import "base/utilities";
 
 // Components
+@import "components/form";
 @import "components/spinner";
 @import "components/navigation";
 @import "components/button";
 @import "components/card";
-@import "components/product";
+@import "pages/product";
 @import "components/gallery";
 @import "components/label";
 @import "components/review-stars";

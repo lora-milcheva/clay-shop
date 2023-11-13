@@ -11,7 +11,6 @@ const ProductPage = () => {
         errorMessage,
         selectedProduct,
         selectedSize,
-        reviews,
         calculateRating,
         productData
     } = useProduct()
@@ -30,7 +29,8 @@ const ProductPage = () => {
                              productData={productData}/>
             </div>
 
-            <ProductReviews reviews={reviews}/>
+            <ProductReviews reviews={productData.reviews}/>
+
         </div>
     )
 }

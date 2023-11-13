@@ -1,0 +1,30 @@
+.form {
+
+
+	& .add-review-form {
+		display: grid;
+		gap: 1rem;
+		margin: 3rem 0 5rem;
+
+		& .btn {
+			justify-self: end;
+		}
+	}
+
+	& .cols {
+		display: flex;
+		gap: 2rem;
+	}
+
+	& .input-container {
+		display: grid;
+		flex-grow: 1;
+		margin-bottom: 2rem;
+
+		& .input {
+			padding: 1rem 2rem;
+			border: 1px solid $color-grey-light;
+			border-radius: $border-radius-big;
+		}
+	}
+}
