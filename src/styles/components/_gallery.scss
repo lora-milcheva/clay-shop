@@ -1,12 +1,14 @@
 .gallery {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-content: start;
 
 	&__selected {
 		overflow: hidden;
-		margin-bottom: .5rem;
 		transition: $transition-fast;
-
-		img {
-		}
+		line-height: 0;
+		max-height: 60rem;
 	}
 
 	&__thumbnails {

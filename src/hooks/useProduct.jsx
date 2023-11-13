@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { loadData } from "../data/ProductInfo";
+import { loadProductData } from "../data/ProductData";
 import { useParams } from "react-router-dom";
 
 const useProduct = () => {
@@ -11,12 +11,13 @@ const useProduct = () => {
     const [productData, setProductData] = useState(null)
     const [selectedProduct, setSelectedProduct] = useState(null)
 
-    const [selectedSize, setSelectedSize] = useState()
+    const [selectedSize, setSelectedSize] = useState(null)
+
 
     useEffect(() => {
         (async () => {
             try {
-                const response = await loadData(id)
+                const response = await loadProductData(id)
                 const data = response[0]
                 setProductData(data)
                 const product = data.products.filter(p => p.id === id)[0]
@@ -26,6 +27,7 @@ const useProduct = () => {
             }
         })()
     }, [id])
+
 
     useEffect(() => {
         if ((productData && selectedProduct) || errorMessage) {
@@ -38,10 +40,10 @@ const useProduct = () => {
         setSelectedSize(size)
     }
 
+
     const calculateRating = () => {
         let rating = 0
         const reviews = productData?.reviews
-
         reviews.forEach(review => rating += Number(review.rating))
 
         return {
@@ -49,7 +51,6 @@ const useProduct = () => {
             reviewsCount: reviews.length
         }
     }
-
 
 
     return {

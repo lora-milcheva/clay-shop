@@ -1,4 +1,8 @@
 .content {
 	min-height: 65vh;
-	padding: 5rem 10vw;
+	padding: 5rem 13vw;
+
+	@include respond(tab) {
+		padding: 5rem 10vw;
+	}
 }

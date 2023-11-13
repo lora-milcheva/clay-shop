@@ -6,7 +6,15 @@ import useProduct from "../../hooks/useProduct";
 
 
 const ProductPage = () => {
-    const {isLoading, errorMessage, selectedProduct, reviews, brandDescription, calculateRating} = useProduct()
+    const {
+        isLoading,
+        errorMessage,
+        selectedProduct,
+        selectedSize,
+        reviews,
+        calculateRating,
+        productData
+    } = useProduct()
 
 
     if (isLoading) return <Spinner/>
@@ -17,8 +25,9 @@ const ProductPage = () => {
             <div className='product__data'>
                 <ProductGallery images={selectedProduct.images}/>
                 <ProductInfo selectedProduct={selectedProduct}
-                             brandDescription={brandDescription}
-                             rating={calculateRating()}/>
+                             selectedSize={selectedSize}
+                             rating={calculateRating()}
+                             productData={productData}/>
             </div>
 
             <ProductReviews reviews={reviews}/>

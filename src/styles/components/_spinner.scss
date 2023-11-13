@@ -1,3 +1,14 @@
+.spinner-container {
+	position: fixed;
+	top: 35%;
+	left: 50%;
+	transform: translateX(-50%);
+
+	//display: grid;
+	//align-items: center;
+	//justify-content: center;
+}
+
 .lds-spinner {
 	color: official;
 	display: inline-block;

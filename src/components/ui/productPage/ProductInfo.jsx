@@ -5,9 +5,9 @@ import ProductColorOptions from "./ProductColorOptions";
 
 
 const ProductInfo = (props) => {
-    const { name, label, description, sizes } = props.selectedProduct
+    const { id, name, label, description, sizes, price } = props.selectedProduct
     const { ratingValue, reviewsCount } = props.rating
-    const brandDescription = props.brandDescription
+    const  productData  = props.productData
 
     const tabsData = [
         {
@@ -16,13 +16,23 @@ const ProductInfo = (props) => {
         },
         {
             id: 'Brand',
-            content: brandDescription
+            content: props.brandDescription
         },
         {
             id: 'Delivery',
             content: 'Delivery text here.'
         }
     ]
+
+
+    const colorOptions = []
+    productData.products.forEach(el => {
+        colorOptions.push({
+            color: el.colorHEX,
+            id: el.id
+        })
+    })
+
 
     return (
         <div className='product-info'>
@@ -41,9 +51,20 @@ const ProductInfo = (props) => {
 
             <TabGroup tabsData={tabsData}/>
 
-            <div className='product-info__options' >
+            <div className='product-info__options'>
                 <ProductSizes sizes={sizes}/>
-                <ProductColorOptions />
+                <ProductColorOptions colorOptions={colorOptions}
+                                     selectedProductId={id}/>
+            </div>
+
+            <div className='product-info__footer'>
+                <div className='product-info__price'>
+                    ${Number(price).toFixed(2)}
+                </div>
+                <div className='product-info__cta'>
+                    <button className='btn btn--primary'>Shop Now</button>
+                    <button className='btn btn--default'>Add to cart</button>
+                </div>
             </div>
 
         </div>

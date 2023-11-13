@@ -2,7 +2,7 @@
 	&__data {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 3rem;
+		gap: 5rem;
 		background-color: $color-white;
 		border-radius: $border-radius-big;
 		padding: 3rem 4rem;
@@ -10,6 +10,10 @@
 }
 
 .product-info {
+	display: flex;
+	flex-direction: column;
+	align-content: start;
+	gap: 1rem;
 
 	&__header {
 		display: flex;
@@ -23,12 +27,13 @@
 	}
 
 	.name {
+		font-size: 4.8rem;
 		line-height: 1.2;
 	}
 
 	&__rating {
 		display: flex;
-		align-items: center;
+		align-items: start;
 	}
 
 	&__reviews-count {
@@ -38,6 +43,61 @@
 	&__options {
 		display: flex;
 		justify-content: space-between;
+
+		& .colors {
+			&__header {
+			}
+
+			&__options {
+				display: flex;
+				gap: .8rem;
+				margin-top: 1rem;
+			}
+
+			& .color-option {
+				width: 2.4rem;
+				height: 2.4rem;
+				border-radius: $border-radius-small;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&.selected {
+					position: relative;
+
+					&:after {
+						content: '';
+						position: absolute;
+						top: -.3rem;
+						left: -.3rem;
+						width: 3rem;
+						height: 3rem;
+						border-radius: $border-radius-small;
+						border: 1px solid $color-dark;
+					}
+				}
+			}
+		}
+	}
+
+	&__footer {
+		flex-grow: 1;
+
+		display: flex;
+		align-items: end;
+		gap: 3rem;
+		justify-content: space-between;
+	}
+
+	&__price {
+		font-size: 2.4rem;
+	}
+
+	&__cta {
+		display: flex;
+		gap: 1rem;
+		justify-items: end;
 	}
 
 }

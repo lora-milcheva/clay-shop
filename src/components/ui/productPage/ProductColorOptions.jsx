@@ -1,27 +1,20 @@
-import useProduct from "../../../hooks/useProduct";
 import { useNavigate } from 'react-router-dom';
 
-const ProductColorOptions = () => {
-    const { productData } = useProduct()
+const ProductColorOptions = ( props ) => {
     const navigate = useNavigate();
-
-    const colorOptions = []
-
-    productData?.products.forEach(el => {
-        colorOptions.push({
-            color: el.colorHEX,
-            id: el.id
-        })
-    })
+    const {colorOptions , selectedProductId} = props
 
     return (
-        <div className='color-options'>
-            {colorOptions.map(el => {
-                return <button className='btn'
-                               onClick={() => navigate("/product/" + el.id)}
-                               style={{ backgroundColor: el.color, display: 'inline-block' }}
-                               key={el.color}/>
-            })}
+        <div className='colors'>
+            <p className='colors__header'>Color</p>
+            <div className='colors__options'>
+                {colorOptions.map(el => {
+                    return <button className={el.id === selectedProductId ? "color-option selected" : "color-option"}
+                                   onClick={() => navigate("/product/" + el.id)}
+                                   style={{ backgroundColor: el.color }}
+                                   key={el.color}/>
+                })}
+            </div>
         </div>
     )
 }

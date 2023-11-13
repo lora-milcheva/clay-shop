@@ -21,7 +21,7 @@ const PRODUCTS = [
                     '(Red Valentino). Peter Pan collar, tulle panels, sleeveless model, \n' +
                     'concealed back zipper and pleated skirt. Black colour.',
                 colorHEX: '#127681',
-                price: '1330.00',
+                price: '1330.50',
                 images: ['../images/dress_01_01.jpg', '../images/dress_01_02.jpg', '../images/dress_01_03.jpg', '../images/dress_01_04.jpg'],
                 sizes: [{ S: 8 }, { M: 2 }],
             },
@@ -53,7 +53,7 @@ const PRODUCTS = [
     }
 ]
 
-const loadData = (productId) => {
+const loadProductData = (productId) => {
     const product = PRODUCTS.filter(p => p.productGroupIds.includes(productId))
 
     return new Promise((resolve, reject) => {
@@ -67,5 +67,5 @@ const loadData = (productId) => {
 }
 
 export {
-    loadData
+    loadProductData
 }
