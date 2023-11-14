@@ -11,9 +11,9 @@ const ProductPage = () => {
         errorMessage,
         selectedProduct,
         selectedSize,
-        calculateRating,
         productData,
-        setProductData,
+        calculateRating,
+        saveSelectedSize,
         saveReview
     } = useProduct()
 
@@ -26,9 +26,10 @@ const ProductPage = () => {
             <div className='product__data'>
                 <ProductGallery images={selectedProduct.images}/>
                 <ProductInfo selectedProduct={selectedProduct}
+                             productData={productData}
                              selectedSize={selectedSize}
-                             rating={calculateRating()}
-                             productData={productData}/>
+                             saveSelectedSize={saveSelectedSize}
+                             rating={calculateRating()}/>
             </div>
 
             <ProductReviews reviews={productData.reviews} saveReview={saveReview}/>

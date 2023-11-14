@@ -5,9 +5,9 @@ import ProductColorOptions from "./ProductColorOptions";
 
 
 const ProductInfo = (props) => {
-    const { id, name, label, description, sizes, price } = props.selectedProduct
-    const { ratingValue, reviewsCount } = props.rating
-    const  productData  = props.productData
+    const { selectedProduct, productData, rating, selectedSize, saveSelectedSize } = props
+    const { id, name, label, description, sizes, price } = selectedProduct
+    const { ratingValue, reviewsCount } =  rating
 
     const tabsData = [
         {
@@ -54,7 +54,7 @@ const ProductInfo = (props) => {
             <TabGroup tabsData={tabsData}/>
 
             <div className='product-info__options'>
-                <ProductSizes sizes={sizes}/>
+                <ProductSizes sizes={sizes} selectedSize={selectedSize} saveSelectedSize={saveSelectedSize}/>
                 <ProductColorOptions colorOptions={colorOptions}
                                      selectedProductId={id}/>
             </div>
