@@ -35,9 +35,15 @@ const useProduct = () => {
         }
     }, [productData, selectedProduct, errorMessage])
 
-
     const saveSelectedSize = (size) => {
         setSelectedSize(size)
+    }
+
+    const saveReview = (review) => {
+        setProductData({
+            ...productData,
+            reviews: [review, ...productData.reviews]
+        });
     }
 
     const calculateRating = () => {
@@ -56,10 +62,12 @@ const useProduct = () => {
         errorMessage,
         setSelectedProduct,
         productData,
+        setProductData,
         selectedProduct,
         calculateRating,
         selectedSize,
         saveSelectedSize,
+        saveReview,
     }
 }
 

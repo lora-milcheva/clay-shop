@@ -7,7 +7,6 @@ const RatingStars = (props) => {
 
     useEffect(() => {
         setRating(ratingValue)
-        console.log(2525)
     }, [ratingValue])
 
     const handleRatingClick = (rate) => {

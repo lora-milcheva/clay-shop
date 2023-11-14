@@ -40,7 +40,7 @@ const PRODUCTS = [
             {
                 author: 'John Doe',
                 email: 'john.doe@gmail.com',
-                text: 'Example review',
+                message: 'Example review',
                 rating: 4
             },
             {
@@ -66,27 +66,31 @@ const loadProductData = (productId) => {
     });
 }
 
-const addReview = (productId, review) => {
-
-    console.log(PRODUCTS)
-    const product = PRODUCTS.find(p => p.productGroupIds.includes(productId))
-
-    console.log(product)
-
-    product.reviews.push(review)
-
-    return new Promise((resolve, reject) => {
-        if (product.length === 0) {
-            reject('This product does not exist!')
-        }
-        setTimeout(() => {
-            resolve(product);
-        }, 1000);
-    });
-
+const addProductReview = (productId, review) => {
+    const productIndex = PRODUCTS.findIndex(p => p.productGroupIds.includes(productId))
+    if (productIndex < 0) return
+    PRODUCTS[productIndex].reviews.unshift(review)
 }
+
+
+// const addProductReview = (productId, review) => {
+//
+//     return new Promise((resolve, reject) => {
+//         const productIndex = PRODUCTS.findIndex(p => p.productGroupIds.includes(productId))
+//
+//         if (productIndex < 0) {
+//             reject('This product does not exist!')
+//         }
+//
+//         PRODUCTS[productIndex].reviews.unshift(review)
+//
+//         setTimeout(() => {
+//             resolve('Thank you! Your review has been added successfully.');
+//         }, 1000);
+//     });
+// }
 
 export {
     loadProductData,
-    addReview
+    addProductReview
 }

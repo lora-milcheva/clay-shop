@@ -12,7 +12,9 @@ const ProductPage = () => {
         selectedProduct,
         selectedSize,
         calculateRating,
-        productData
+        productData,
+        setProductData,
+        saveReview
     } = useProduct()
 
 
@@ -29,7 +31,7 @@ const ProductPage = () => {
                              productData={productData}/>
             </div>
 
-            <ProductReviews reviews={productData.reviews}/>
+            <ProductReviews reviews={productData.reviews} saveReview={saveReview}/>
 
         </div>
     )

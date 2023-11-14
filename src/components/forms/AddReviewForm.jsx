@@ -1,21 +1,20 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useInput from "../../hooks/useInput";
-import { addReview } from "../../data/ProductData";
-
+import { addProductReview } from "../../data/ProductData";
 import RatingStars from "../ui/productPage/RatingStars";
-import useProduct from "../../hooks/useProduct";
 
 
-const AddReviewForm = () => {
+const AddReviewForm = (props) => {
+
     const { id } = useParams()
+    const { saveReview } = props
+    const INITIAL_RATING_VALUE = 4
+    const [ratingValue, setRatingValue] = useState(INITIAL_RATING_VALUE)
 
-    const {setSelectedProduct} = useProduct()
-
-    let ratingValue = 4
     const getRatingData = (value) => {
-        ratingValue = value
+        setRatingValue(value)
     }
-
 
     // NAME INPUT
     const {
@@ -41,7 +40,6 @@ const AddReviewForm = () => {
     // MESSAGE INPUT
     const {
         value: enteredMessage,
-        isValid: enteredMessageIsValid,
         hasError: messageInputHasError,
         valueChangeHandler: messageChangedHandler,
         inputBlurHandler: messageBlurHandler,
@@ -63,21 +61,22 @@ const AddReviewForm = () => {
             author: enteredName,
             email: enteredEmail,
             message: enteredMessage,
-            rating: ratingValue
+            rating: Number(ratingValue)
         }
 
-        const saveReview = async () => {
-            const result = await addReview(id, review)
-            console.log(result)
-            setSelectedProduct(result)
+        saveReview(review)
+
+        const addReviewToData = async () => {
+            const result = await addProductReview(id, review)
+
         }
 
-        saveReview()
+        addReviewToData()
 
-
-        // resetNameInput()
-        // resetEmailInput()
-        // resetMessageInput()
+        resetNameInput()
+        resetEmailInput()
+        resetMessageInput()
+        setRatingValue(INITIAL_RATING_VALUE)
     }
 
     const nameInputStyle = nameInputHasError ? 'form-control invalid' : 'form-control'
