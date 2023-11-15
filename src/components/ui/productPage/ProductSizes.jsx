@@ -1,8 +1,6 @@
-import useProduct from "../../../hooks/useProduct";
 
-const ProductSizes = ({ sizes }) => {
-    const { selectedSize, saveSelectedSize } = useProduct()
-    const availableSizes = sizes.map(el => Object.keys(el)[0])
+const ProductSizes = (props) => {
+    const { availableSizes, selectedSize, saveSelectedSize } = props
 
     return (
         <div className='sizes'>

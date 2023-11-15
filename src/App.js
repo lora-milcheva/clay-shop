@@ -7,10 +7,11 @@ import ContactPage from "./components/pages/ContactPage";
 import Footer from "./components/layout/footer/Footer";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import ProductPage from "./components/pages/ProductPage";
+import { ShoppingCartProvider } from "./store/shopping-cart-context";
 
 function App() {
     return (
-        <>
+        <ShoppingCartProvider>
             <Header/>
             <div className='content'>
                 <Routes>
@@ -23,7 +24,7 @@ function App() {
                 </Routes>
             </div>
             <Footer/>
-        </>
+        </ShoppingCartProvider>
     );
 }
 

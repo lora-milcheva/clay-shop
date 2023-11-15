@@ -1,8 +1,9 @@
 import AddReviewForm from "../../forms/AddReviewForm";
 import ProductReviewCard from "./ProductReviewCard";
+import useProduct from "../../../hooks/use-product";
 
 const ProductReviews = (props) => {
-    const { reviews, saveReview } = props
+    const { productData, saveReview } = useProduct()
 
     return (
         <div className='product__reviews'>
@@ -11,7 +12,7 @@ const ProductReviews = (props) => {
             <AddReviewForm saveReview={saveReview}/>
 
             <div className='reviews'>
-                {reviews.map((el, index) => {
+                {productData?.reviews.map((el, index) => {
                     return <ProductReviewCard review={el} key={index + el.author + el.message}/>
                 })}
             </div>

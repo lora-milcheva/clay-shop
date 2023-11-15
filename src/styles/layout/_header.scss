@@ -31,9 +31,31 @@
 		}
 	}
 
-	&__cart {
+	&__icons {
 		justify-self: end;
 		display: flex;
 		gap: 1.3rem;
+
+		.cart-btn {
+			position: relative;
+		}
+
+		.products-in-cart {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			transform: translateX(.5rem);
+			display: grid;
+			align-items: center;
+			justify-content: center;
+			min-width: 2rem;
+			min-height: 2rem;
+			padding: .4rem .6rem;
+			background-color: $color-dark;
+			color: $color-white;
+			border-radius: 3rem;
+			font-size: 1.2rem;
+			line-height: .5;
+		}
 	}
 }

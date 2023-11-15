@@ -2,7 +2,7 @@ import Spinner from "../ui/Spinner";
 import ProductInfo from "../ui/productPage/ProductInfo";
 import ProductGallery from "../ui/productPage/ProductGallery";
 import ProductReviews from "../ui/productPage/ProductReviews";
-import useProduct from "../../hooks/useProduct";
+import useProduct from "../../hooks/use-product";
 
 
 const ProductPage = () => {
@@ -10,10 +10,8 @@ const ProductPage = () => {
         isLoading,
         errorMessage,
         selectedProduct,
-        selectedSize,
         productData,
         calculateRating,
-        saveSelectedSize,
         saveReview
     } = useProduct()
 
@@ -27,8 +25,6 @@ const ProductPage = () => {
                 <ProductGallery images={selectedProduct.images}/>
                 <ProductInfo selectedProduct={selectedProduct}
                              productData={productData}
-                             selectedSize={selectedSize}
-                             saveSelectedSize={saveSelectedSize}
                              rating={calculateRating()}/>
             </div>
 

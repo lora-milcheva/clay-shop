@@ -28,4 +28,4 @@ export const FOOTER_INFO = [
     }
 ]
 
-export const FOOTER_TEXT = "Fashion is a popular aesthetic expression at a particular time, place and in a specific context, especially in clothing, footwear, lifestyle, accessories and makeup."
+export const FOOTER_TEXT = "Fashion is a popular aesthetic expression at a particular time, place and in a specific store, especially in clothing, footwear, lifestyle, accessories and makeup."

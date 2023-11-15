@@ -1,5 +1,5 @@
 import Navigation from "../../navigation/Navigation";
-import { FOOTER_INFO, FOOTER_TEXT } from "../../../data/footerInfo";
+import { FOOTER_INFO, FOOTER_TEXT } from "../../../data/footer-info";
 import FooterLinksBlock from "./FooterLinksBlock";
 
 const Footer = () => {

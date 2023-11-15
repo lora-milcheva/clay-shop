@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { loadProductData } from "../data/ProductData";
+import { loadProductData } from "../data/products-data";
 import { useParams } from "react-router-dom";
 
 const useProduct = () => {

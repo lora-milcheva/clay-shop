@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import useInput from "../../hooks/useInput";
-import { addProductReview } from "../../data/ProductData";
+import useInput from "../../hooks/use-input";
+import { addProductReview } from "../../data/products-data";
 import RatingStars from "../ui/productPage/RatingStars";
 
 
