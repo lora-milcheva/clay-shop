@@ -30,9 +30,11 @@ const CartItem = (props) => {
                 <p>${(price * quantity).toFixed(2)}</p>
             </div>
 
-            <button className='btn xs' onClick={() => removeFromCart(id, size)}>
-                X
-            </button>
+            <div className='cart-item__remove'>
+                <button className='btn xs' onClick={() => removeFromCart(id, size)}>
+                    X
+                </button>
+            </div>
         </div>
     )
 }

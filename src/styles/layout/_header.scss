@@ -34,7 +34,10 @@
 	&__icons {
 		justify-self: end;
 		display: flex;
-		gap: 1.3rem;
+
+		.btn {
+			padding: 1rem;
+		}
 
 		.cart-btn {
 			position: relative;
@@ -44,7 +47,7 @@
 			position: absolute;
 			right: 0;
 			bottom: 0;
-			transform: translate(-1rem, -0.5rem);
+			transform: translate(-0.2rem, -0.5rem);
 			display: grid;
 			align-items: center;
 			justify-content: center;
