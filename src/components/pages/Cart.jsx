@@ -24,11 +24,6 @@ const cartTabsData = [
 
 const Cart = () => {
     const { isOpen, closeCart, cartItems } = useShoppingCart()
-    console.log(isOpen)
-
-    const renderTabContent = () => {
-
-    }
 
     if (!isOpen) return
 
@@ -39,7 +34,7 @@ const Cart = () => {
             <div className='cart__content'>
                 <TabGroup tabsData={cartTabsData}/>
 
-                {cartItems.map(item=> <CartItem item={item} key={item}/>)}
+                {cartItems.map(item=> <CartItem item={item} key={item.id + item.size}/>)}
 
                 <div className='cart__footer'>
                     <button className='btn btn--default' onClick={closeCart}>To shop</button>

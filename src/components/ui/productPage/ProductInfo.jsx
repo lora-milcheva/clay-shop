@@ -50,7 +50,11 @@ const ProductInfo = (props) => {
             return
         }
 
-        increaseItemQuantity(id, name, selectedSize, colorHEX, images[0] )
+        const item = {
+            id, size: selectedSize, name, colorHEX, image: images[0], price
+        }
+
+        increaseItemQuantity(item)
         openCart()
     }
 
@@ -95,7 +99,7 @@ const ProductInfo = (props) => {
                     ${Number(price).toFixed(2)}
                 </div>
                 <div className='product-info__cta'>
-                    <button className='btn btn--primary' onClick={() => decreaseItemQuantity(id, selectedSize)}>
+                    <button className='btn btn--primary' onClick={() => decreaseItemQuantity({ id, selectedSize })}>
                         Shop Now
                     </button>
                     <button className='btn btn--default' onClick={handleAddToCartClick}>

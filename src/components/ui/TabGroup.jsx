@@ -19,10 +19,10 @@ const TabGroup = (props) => {
                     </button>)}
             </div>
 
-            {tabsData.map(el =>
+            {tabsData.map((el, index) =>
                 <div id={el.id}
                      className={activeTab === el.id ? "tab__content visible" : "tab__content"}
-                     key={el.content + 'key'}>
+                     key={el.content + 'key' + index}>
                     <p>{el.content}</p>
                 </div>
             )}

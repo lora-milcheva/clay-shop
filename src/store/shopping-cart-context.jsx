@@ -47,22 +47,23 @@ export const ShoppingCartProvider = ({ children }) => {
         return item.size === size && item.id === id
     }
 
-    const addToCart = (id, size, name, color, image) => {
-        setCartItems([...cartItems, { id, size, name, image, color, quantity: 1 }])
+    const addToCart = (item) => {
+        setCartItems([...cartItems, { ...item,  quantity: 1 }])
     }
 
-    const increaseItemQuantity = (id, size, name, color, image) => {
+    const increaseItemQuantity = (item) => {
+        const { id, size } = item
         const productIndex = getProductIndex(id, size)
 
         if (productIndex < 0) {
-            addToCart(id, size, name, color, image)
+            addToCart(item)
         } else {
             setCartItems(currItems => {
-                return currItems.map(item => {
-                    if (checkProduct(item, id, size)) {
-                        return { ...item, quantity: item.quantity + 1 }
+                return currItems.map(el => {
+                    if (checkProduct(el, id, size)) {
+                        return { ...el, quantity: el.quantity + 1 }
                     } else {
-                        return item
+                        return el
                     }
                 })
             })

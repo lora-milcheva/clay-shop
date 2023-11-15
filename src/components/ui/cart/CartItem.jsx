@@ -1,28 +1,38 @@
 import { useShoppingCart } from "../../../store/shopping-cart-context";
 
 const CartItem = (props) => {
-    const { id, name, size, quantity, colorHEX, imageUrl } = props.item
+    const { id, name, size, quantity, color, image, price } = props.item
     const { increaseItemQuantity, decreaseItemQuantity, removeFromCart, openCart } = useShoppingCart()
 
-
     return (
-        <div className='cart__item'>
-            <div className='cart__item--image'>
-                <img src={imageUrl}/>
+        <div className='cart-item'>
+            <div className='cart-item__image'>
+                <img src={image} />
             </div>
-            <div className='cart__item--info'>
-                <p className='cart__item--name'>{name}</p>
-                <p className='cart__item--size'>Size: {size}</p>
-                <p>Color: <span className='cart__item--color' style={{ backgroundColor: colorHEX }}/></p>
+
+            <div className='cart-item__info'>
+                <p className='cart-item__name'>{name}</p>
+                <p className='cart-item__size'>Size: <label>{size}</label></p>
+                <p>Color: <span className='cart-item__color' style={{ backgroundColor: color }}/></p>
             </div>
-            <div className='cart__item--controls'>
-                <button className='btn btn--default'
+
+            <div className='cart-item__controls'>
+                <button className='btn btn--default md'
                         onClick={() => decreaseItemQuantity(id, size)}>-
                 </button>
-                {quantity}
-                <button className='btn btn--default'
-                        onClick={() => increaseItemQuantity(id, size)}>+</button>
+                <span className='cart-item__quantity'>{quantity}</span>
+
+                <button className='btn btn--default md'
+                        onClick={() => increaseItemQuantity({ id, size })}>+</button>
             </div>
+
+            <div className='cart-item__price'>
+                <p>${(price * quantity).toFixed(2)}</p>
+            </div>
+
+            <button className='btn xs' onClick={() => removeFromCart(id, size)}>
+                X
+            </button>
 
         </div>
     )
