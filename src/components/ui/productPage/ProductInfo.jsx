@@ -51,7 +51,7 @@ const ProductInfo = (props) => {
         }
 
         const item = {
-            id, size: selectedSize, name, colorHEX, image: images[0], price
+            id, size: selectedSize, name, color: colorHEX, image: images[0], price
         }
 
         increaseItemQuantity(item)

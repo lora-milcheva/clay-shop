@@ -1,17 +1,17 @@
 .cart-item {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	gap: 1.5rem;
 	margin: 0 4rem;
-	padding: 1.2rem 2rem;
+	padding: 3rem 0;
 	border-bottom: 1px solid $color-grey-light;
 
 	&__image {
-		height: 10rem;
-		width: 10rem;
+		height: 7rem;
+		width: 7rem;
 		overflow: hidden;
 		border-radius: $border-radius-big;
+		align-content: start;
 	}
 
 	&__info {
@@ -23,7 +23,8 @@
 	}
 
 	&__name {
-		font-size: 3.4rem;
+		font-size: 3rem;
+		line-height: 1.2;
 	}
 
 	&__color {
@@ -61,8 +62,11 @@
 	}
 
 	&__price {
+		display: flex;
+		align-items: center;
+		justify-content: end;
 		min-width: 16rem;
-		font-size: 3.4rem;
+		font-size: 3rem;
 		text-align: right;
 	}
 

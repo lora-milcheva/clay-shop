@@ -23,7 +23,7 @@ const cartTabsData = [
 
 
 const Cart = () => {
-    const { isOpen, closeCart, cartItems } = useShoppingCart()
+    const { isOpen, closeCart, cartItems, totalPrice } = useShoppingCart()
 
     if (!isOpen) return
 
@@ -35,6 +35,10 @@ const Cart = () => {
                 <TabGroup tabsData={cartTabsData}/>
 
                 {cartItems.map(item=> <CartItem item={item} key={item.id + item.size}/>)}
+
+                <div className='cart__total'>
+                    <p>Total amount: $ <strong>{totalPrice.toFixed(2)}</strong></p>
+                </div>
 
                 <div className='cart__footer'>
                     <button className='btn btn--default' onClick={closeCart}>To shop</button>

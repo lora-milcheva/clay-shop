@@ -6,11 +6,11 @@ export const ShoppingCartContext = createContext({
     cartItems: [],
     openCart: () => {},
     closeCart: () => {},
-    getItemQuantity: () => {},
     increaseItemQuantity: () => {},
     decreaseItemQuantity: () => {},
     removeFromCart: () => {},
-    numberOfProductsInCart: Number
+    numberOfProductsInCart: Number,
+    totalPrice: Number
 })
 
 export const useShoppingCart = () => {
@@ -35,9 +35,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
     const closeCart = () => setIsOpen(false)
 
-    const getItemQuantity = (id) => {
-        return cartItems.find(item => item.id === id)?.quantity || 0
-    }
+    const totalPrice = cartItems.reduce(
+            (sum, item) => item.price * item.quantity + sum,  0
+    )
 
     const getProductIndex = (id, size) => {
         return cartItems.findIndex(el => el.id === id && el.size === size)
@@ -106,11 +106,11 @@ export const ShoppingCartProvider = ({ children }) => {
             cartItems,
             openCart,
             closeCart,
-            getItemQuantity,
             increaseItemQuantity,
             decreaseItemQuantity,
             removeFromCart,
-            numberOfProductsInCart
+            numberOfProductsInCart,
+            totalPrice
         }}>
             {children}
         </ShoppingCartContext.Provider>

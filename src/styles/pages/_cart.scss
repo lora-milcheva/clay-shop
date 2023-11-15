@@ -16,10 +16,17 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 70vw;
+		width: 60vw;
 		height: auto;
 		background-color: $color-white;
 		border-radius: $border-radius-big;
+	}
+
+	&__total {
+		text-align: right;
+		background-color: $color-grey-light-bg;
+		font-size: 3rem;
+		padding: 1rem 4rem;
 	}
 
 	&__footer {
