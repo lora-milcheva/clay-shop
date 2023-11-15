@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
-const TabGroup = ({ tabsData }) => {
-    const [activeTab, setActiveTab] = useState()
-
-    useEffect(() => {
-        setActiveTab(tabsData[0].id)
-    }, [tabsData])
+const TabGroup = (props) => {
+    const { tabsData } = props
+    const [activeTab, setActiveTab] = useState(tabsData[0].id)
 
     const handleTabClick = (tabId) => {
         setActiveTab(tabId)

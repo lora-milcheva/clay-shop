@@ -72,24 +72,6 @@ const addProductReview = (productId, review) => {
     PRODUCTS[productIndex].reviews.unshift(review)
 }
 
-
-// const addProductReview = (productId, review) => {
-//
-//     return new Promise((resolve, reject) => {
-//         const productIndex = PRODUCTS.findIndex(p => p.productGroupIds.includes(productId))
-//
-//         if (productIndex < 0) {
-//             reject('This product does not exist!')
-//         }
-//
-//         PRODUCTS[productIndex].reviews.unshift(review)
-//
-//         setTimeout(() => {
-//             resolve('Thank you! Your review has been added successfully.');
-//         }, 1000);
-//     });
-// }
-
 export {
     loadProductData,
     addProductReview

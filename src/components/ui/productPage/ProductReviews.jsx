@@ -2,7 +2,7 @@ import AddReviewForm from "../../forms/AddReviewForm";
 import ProductReviewCard from "./ProductReviewCard";
 import useProduct from "../../../hooks/use-product";
 
-const ProductReviews = (props) => {
+const ProductReviews = () => {
     const { productData, saveReview } = useProduct()
 
     return (

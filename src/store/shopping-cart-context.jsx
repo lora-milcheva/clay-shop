@@ -3,14 +3,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 // Add default values to be able to use suggestion on import
 export const ShoppingCartContext = createContext({
-    getItemQuantity: () => {
-    },
-    increaseItemQuantity: () => {
-    },
-    decreaseItemQuantity: () => {
-    },
-    removeFromCart: () => {
-    },
+    cartItems: [],
+    openCart: () => {},
+    closeCart: () => {},
+    getItemQuantity: () => {},
+    increaseItemQuantity: () => {},
+    decreaseItemQuantity: () => {},
+    removeFromCart: () => {},
     numberOfProductsInCart: Number
 })
 
@@ -19,6 +18,7 @@ export const useShoppingCart = () => {
 }
 
 export const ShoppingCartProvider = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(false)
     const [cartItems, setCartItems] = useState([])
 
     useEffect(() => {
@@ -31,12 +31,12 @@ export const ShoppingCartProvider = ({ children }) => {
         0 // default value
     )
 
+    const openCart = () => setIsOpen(true)
+
+    const closeCart = () => setIsOpen(false)
+
     const getItemQuantity = (id) => {
         return cartItems.find(item => item.id === id)?.quantity || 0
-    }
-
-    const addToCart = (id, size) => {
-        setCartItems([...cartItems, { id, size, quantity: 1 }])
     }
 
     const getProductIndex = (id, size) => {
@@ -47,11 +47,15 @@ export const ShoppingCartProvider = ({ children }) => {
         return item.size === size && item.id === id
     }
 
-    const increaseItemQuantity = (id, size) => {
+    const addToCart = (id, size, name, color, image) => {
+        setCartItems([...cartItems, { id, size, name, image, color, quantity: 1 }])
+    }
+
+    const increaseItemQuantity = (id, size, name, color, image) => {
         const productIndex = getProductIndex(id, size)
 
         if (productIndex < 0) {
-            addToCart(id, size)
+            addToCart(id, size, name, color, image)
         } else {
             setCartItems(currItems => {
                 return currItems.map(item => {
@@ -87,14 +91,20 @@ export const ShoppingCartProvider = ({ children }) => {
         }
     }
 
-    const removeFromCart = (id) => {
+    const removeFromCart = (id, size) => {
+        const productIndex = getProductIndex(id, size)
+
         setCartItems(currItems => {
-            return currItems.filter(item => item.id !== id)
+            return currItems.filter((el, index) => index !== productIndex)
         })
     }
 
     return (
         <ShoppingCartContext.Provider value={{
+            isOpen,
+            cartItems,
+            openCart,
+            closeCart,
             getItemQuantity,
             increaseItemQuantity,
             decreaseItemQuantity,

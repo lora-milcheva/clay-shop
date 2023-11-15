@@ -8,12 +8,12 @@ import useProduct from "../../../hooks/use-product";
 
 
 const ProductInfo = (props) => {
-    const { increaseItemQuantity, decreaseItemQuantity } = useShoppingCart()
+    const { increaseItemQuantity, decreaseItemQuantity, removeFromCart, openCart } = useShoppingCart()
 
     const { selectedSize, saveSelectedSize } = useProduct()
 
     const { selectedProduct, productData, rating } = props
-    const { id, name, label, description, sizes, price } = selectedProduct
+    const { id, name, label, description, sizes, price, colorHEX, images } = selectedProduct
     const { ratingValue, reviewsCount } = rating
 
     const [errorMessage, setErrorMessage] = useState('')
@@ -26,7 +26,7 @@ const ProductInfo = (props) => {
         },
         {
             id: 'Brand',
-            content: props.brandDescription
+            content: productData.brandDescription
         },
         {
             id: 'Delivery',
@@ -50,7 +50,8 @@ const ProductInfo = (props) => {
             return
         }
 
-        increaseItemQuantity(id, selectedSize)
+        increaseItemQuantity(id, name, selectedSize, colorHEX, images[0] )
+        openCart()
     }
 
     const setError = () => {
