@@ -5,11 +5,10 @@ import ProductColorOptions from "./ProductColorOptions";
 import { useShoppingCart } from "../../../store/shopping-cart-context";
 import { useState } from "react";
 import useProduct from "../../../hooks/use-product";
-import { clear } from "@testing-library/user-event/dist/clear";
 
 
 const ProductInfo = (props) => {
-    const { increaseItemQuantity } = useShoppingCart()
+    const { increaseItemQuantity, decreaseItemQuantity } = useShoppingCart()
 
     const { selectedSize, saveSelectedSize } = useProduct()
 
@@ -95,7 +94,7 @@ const ProductInfo = (props) => {
                     ${Number(price).toFixed(2)}
                 </div>
                 <div className='product-info__cta'>
-                    <button className='btn btn--primary' onClick={handleAddToCartClick}>
+                    <button className='btn btn--primary' onClick={() => decreaseItemQuantity(id, selectedSize)}>
                         Shop Now
                     </button>
                     <button className='btn btn--default' onClick={handleAddToCartClick}>

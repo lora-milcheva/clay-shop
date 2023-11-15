@@ -39,20 +39,24 @@ export const ShoppingCartProvider = ({ children }) => {
         setCartItems([...cartItems, { id, size, quantity: 1 }])
     }
 
+    const getProductIndex = (id, size) => {
+        return cartItems.findIndex(el => el.id === id && el.size === size)
+    }
+
+    const checkProduct = (item, id, size) => {
+        return item.size === size && item.id === id
+    }
 
     const increaseItemQuantity = (id, size) => {
-
-        const productIndex = cartItems.findIndex(el => el.id === id && el.size === size)
-        console.log(productIndex)
-        console.log(size)
+        const productIndex = getProductIndex(id, size)
 
         if (productIndex < 0) {
             addToCart(id, size)
         } else {
             setCartItems(currItems => {
                 return currItems.map(item => {
-                    if (item.size === size && item.id === id) {
-                        return {...item, quantity: item.quantity + 1}
+                    if (checkProduct(item, id, size)) {
+                        return { ...item, quantity: item.quantity + 1 }
                     } else {
                         return item
                     }
@@ -61,21 +65,26 @@ export const ShoppingCartProvider = ({ children }) => {
         }
     }
 
-    const decreaseItemQuantity = (id) => {
-        setCartItems(currItems => {
-            // Check if item quantity is 1, if so - remove it from cart, else decrease by 1
-            if (currItems.find(item => item.id === id)?.quantity === 1) {
-                return currItems.filter(item => item.id !== id)
-            } else {
+    const decreaseItemQuantity = (id, size) => {
+        const productIndex = getProductIndex(id, size)
+
+        if (productIndex < 0) return
+
+        if (cartItems[productIndex].quantity === 1) {
+            setCartItems(currItems => {
+                return currItems.filter((el, index) => index !== productIndex)
+            })
+        } else {
+            setCartItems(currItems => {
                 return currItems.map(item => {
-                    if (item.id === id) {
+                    if (checkProduct(item, id, size)) {
                         return { ...item, quantity: item.quantity - 1 }
                     } else {
                         return item
                     }
                 })
-            }
-        })
+            })
+        }
     }
 
     const removeFromCart = (id) => {
@@ -96,4 +105,5 @@ export const ShoppingCartProvider = ({ children }) => {
         </ShoppingCartContext.Provider>
     )
 }
+
 
