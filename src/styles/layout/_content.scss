@@ -3,14 +3,14 @@
 	justify-content: center;
 	min-height: 65vh;
 	margin: 5rem auto;
-	max-width: 100rem;
+	max-width: 120rem;
 
 	@include respond(tab-land) {
-		padding: 0 10vw;
+		//padding: 0 10vw;
 	}
 
 	@include respond(tab-port) {
-		padding: 0 5vw;
+		//padding: 0 5vw;
 	}
 
 	@include respond(phone) {

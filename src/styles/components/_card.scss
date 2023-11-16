@@ -1,32 +1,54 @@
 .card {
-	padding: 2rem 0;
-	border-bottom: 1px solid $color-grey-light;
+	position: relative;
+	transition: $transition-main;
+	border-radius: $border-radius-big;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	background-color: $color-white;
+	padding: .2rem;
 
-	&__title {
-		color: $color-primary-dark;
-		font-weight: 700;
+	&:hover {
+		.card__cta {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+
+	&__image {
 	}
 
 	&__info {
-		//margin-top: 1rem;
+		align-self: stretch;
+
+		padding: 1rem 2rem 2rem;
+		display: grid;
+		align-items: stretch;
 	}
 
-	&__date {
-		font-size: $font-size-sm;
-		color: $color-grey-medium;
-
-		&:after {
-			content: '/';
-			padding: 0 10px;
-			color: $color-primary;
-		}
-
-		@include respond(phone) {
-			display: block;
-		}
+	&__price {
+		align-self: end;
 	}
 
-	&__company {
-		font-weight: 500;
+	&__title {
+		font-size: 2rem;
 	}
+
+	&__cta {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+		visibility: hidden;
+		background-color: rgba($color-grey-dark, .8);
+		transition: $transition-main;
+	}
+
 }

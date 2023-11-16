@@ -21,7 +21,7 @@ const ProductPage = () => {
     if (errorMessage) return <p>{errorMessage}</p>
 
     return (
-        <div className='product'>
+        <div className='product-page product'>
             <div className='product__data'>
 
                 <ProductHeader selectedProduct={selectedProduct} rating={calculateRating()} />

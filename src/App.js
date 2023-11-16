@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "./components/layout/header/Header";
 import Footer from "./components/layout/footer/Footer";
@@ -13,9 +13,18 @@ import ProductPage from "./components/pages/ProductPage";
 
 
 import { ShoppingCartProvider } from "./store/shopping-cart-context";
+import { useEffect } from "react";
+
 
 
 function App() {
+
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo({top:0, left: 0, behaviour: 'smooth'})
+    }, [location])
+
     return (
         <ShoppingCartProvider>
             <Header/>
