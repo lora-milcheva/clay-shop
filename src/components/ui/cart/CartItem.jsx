@@ -31,7 +31,7 @@ const CartItem = (props) => {
             </div>
 
             <div className='cart-item__remove'>
-                <button className='btn xs' onClick={() => removeFromCart(id, size)}>
+                <button className='btn btn--default xs' onClick={() => removeFromCart(id, size)}>
                     X
                 </button>
             </div>
