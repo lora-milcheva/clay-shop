@@ -1,4 +1,6 @@
 import { useShoppingCart } from "../../../store/shopping-cart-context";
+import { IoIosAdd, IoIosRemove , IoIosClose } from "react-icons/io";
+
 
 const CartItem = (props) => {
     const { id, name, size, quantity, color, image, price } = props.item
@@ -7,7 +9,7 @@ const CartItem = (props) => {
     return (
         <div className='cart-item'>
             <div className='cart-item__image'>
-                <img src={image} />
+                <img src={image}/>
             </div>
 
             <div className='cart-item__info'>
@@ -18,12 +20,15 @@ const CartItem = (props) => {
 
             <div className='cart-item__controls'>
                 <button className='btn btn--default md'
-                        onClick={() => decreaseItemQuantity(id, size)}>-
+                        onClick={() => decreaseItemQuantity(id, size)}>
+                    <IoIosRemove />
                 </button>
                 <span className='cart-item__quantity'>{quantity}</span>
 
                 <button className='btn btn--default md'
-                        onClick={() => increaseItemQuantity({ id, size })}>+</button>
+                        onClick={() => increaseItemQuantity({ id, size })}>
+                    <IoIosAdd/>
+                </button>
             </div>
 
             <div className='cart-item__price'>
@@ -31,8 +36,8 @@ const CartItem = (props) => {
             </div>
 
             <div className='cart-item__remove'>
-                <button className='btn btn--default xs' onClick={() => removeFromCart(id, size)}>
-                    X
+                <button className='btn btn--default' onClick={() => removeFromCart(id, size)}>
+                    <IoIosClose/>
                 </button>
             </div>
         </div>

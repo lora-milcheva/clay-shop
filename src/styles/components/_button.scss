@@ -4,7 +4,9 @@
   &:visited {
     //text-transform: uppercase;
     padding: 1rem 2rem;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: $border-radius-small;
     transition: all .2s;
     position: relative;
@@ -56,7 +58,7 @@
     color: $color-white;
     background-color: $color-primary;
 
-    &:hover {
+    &:hover:enabled {
       background-color: darken($color-primary, 5%);
     }
   }

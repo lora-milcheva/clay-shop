@@ -7,6 +7,10 @@
 		grid-template-columns: 1fr 4fr;
 		padding: 3rem 10rem;
 
+		@include respond(tab-land) {
+			grid-template-columns: 1fr 3fr;
+		}
+
 		@include respond(phone) {
 			grid-template-columns: none;
 			padding: 3rem;

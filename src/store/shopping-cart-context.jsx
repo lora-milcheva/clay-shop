@@ -25,7 +25,6 @@ export const ShoppingCartProvider = ({ children }) => {
         console.log(cartItems)
     }, [cartItems])
 
-
     const numberOfProductsInCart = cartItems.reduce(
         (quantity, item) => item.quantity + quantity,
         0 // default value

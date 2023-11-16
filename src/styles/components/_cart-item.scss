@@ -4,12 +4,16 @@
 	gap: 1.5rem;
 	margin: 0 4rem;
 	padding: 3rem 0;
-	border-bottom: 1px solid $color-grey-light;
 	position: relative;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid $color-grey-light;
+	}
 
 	@include respond(phone) {
 		flex-direction: column;
 		margin: 0 2.5rem;
+		padding: 1rem 0;
 	}
 
 	&__image {
@@ -30,6 +34,10 @@
 	&__name {
 		font-size: 2.5rem;
 		line-height: 1.2;
+
+		@include respond(phone) {
+			font-size: 2rem;
+		}
 	}
 
 	&__color {
@@ -85,10 +93,18 @@
 		align-items: center;
 		justify-content: end;
 
+		.btn {
+			border-color: transparent;
+		}
+
 		@include respond(phone) {
 			position: absolute;
 			top: 3rem;
 			right: 0;
+
+			.btn {
+				border-color: $color-grey-medium;
+			}
 		}
 	}
 

@@ -17,6 +17,7 @@
 
 		@include respond(phone) {
 			grid-template-columns: none;
+			gap: 0;
 		}
 	}
 
@@ -30,6 +31,7 @@
 
 		@include respond(phone) {
 			grid-column: unset;
+			margin-bottom: 1rem;
 		}
 
 		&__top {

@@ -15,7 +15,7 @@ const ProductHeader = (props) => {
                 </button>
             </div>
 
-            <h1 className='heading primary name'>{name}</h1>
+            <h1 className='heading-primary name'>{name}</h1>
 
             <div className='product-info__rating'>
                 <RatingStars isReadonly={true}

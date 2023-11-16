@@ -15,7 +15,8 @@
 		gap: 2rem;
 
 		@include respond(phone) {
-			gap: 1rem;
+			flex-direction: column;
+			gap: 0;
 		}
 	}
 
@@ -25,7 +26,11 @@
 		align-content: start;
 		margin-bottom: 2rem;
 		height: auto;
-		min-height: 8rem;
+
+		@include respond(phone) {
+			min-height: auto;
+			margin-bottom: 1rem;
+		}
 
 		& input, textarea {
 			padding: 1.3rem 2rem;
