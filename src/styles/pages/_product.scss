@@ -1,41 +1,49 @@
 .product {
-
 	&__data,
 	&__reviews {
 		background-color: $color-white;
 		border-radius: $border-radius-big;
 		padding: 3rem 4rem;
+
+		@include respond(phone) {
+			padding: 2rem;
+		}
 	}
 
 	&__data {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 5rem;
+		gap: 4rem;
+
+		@include respond(phone) {
+			grid-template-columns: none;
+		}
 	}
 
 	&__reviews {
 		margin-top: 3rem;
 	}
 
-	& .product-info {
-		display: flex;
-		flex-direction: column;
-		align-content: start;
-		gap: 1rem;
 
-		&__header {
+	& .product-header {
+		grid-column: 2 / 3;
+
+		@include respond(phone) {
+			grid-column: unset;
+		}
+
+		&__top {
 			display: flex;
 			justify-content: space-between;
 			align-items: start;
+		}
 
-			// add to favourites btn
-			img {
-				height: 4rem;
-			}
+		// add to favourites btn
+		img {
+			height: 4rem;
 		}
 
 		.name {
-
 		}
 
 		&__rating {
@@ -46,6 +54,15 @@
 		&__reviews-count {
 			margin-left: 1rem;
 		}
+
+	}
+
+
+	& .product-info {
+		display: flex;
+		flex-direction: column;
+		align-content: start;
+		gap: 1rem;
 
 		&__options {
 			display: flex;
@@ -95,6 +112,11 @@
 			align-items: end;
 			gap: 3rem;
 			justify-content: space-between;
+
+			@include respond(phone) {
+				margin-top: 4rem;
+				display: initial;
+			}
 		}
 
 		&__price {
@@ -105,6 +127,14 @@
 			display: flex;
 			gap: 1rem;
 			justify-items: end;
+
+			@include respond(phone) {
+				margin-top: 2rem;
+
+				button {
+					flex-grow: 1;
+				}
+			}
 		}
 
 	}
@@ -122,6 +152,10 @@
 
 		&__author {
 			font-size: 2.4rem;
+
+			@include respond(phone) {
+				font-size: 1.8rem;
+			}
 		}
 	}
 }

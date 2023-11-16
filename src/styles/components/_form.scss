@@ -1,6 +1,5 @@
 .form {
 
-
 	& .add-review-form {
 		display: grid;
 		gap: 1rem;
@@ -14,6 +13,10 @@
 	& .cols {
 		display: flex;
 		gap: 2rem;
+
+		@include respond(phone) {
+			gap: 1rem;
+		}
 	}
 
 	& .form-control {
@@ -31,6 +34,10 @@
 
 			&::placeholder {
 				color: $color-grey-medium;
+			}
+
+			@include respond(phone) {
+				padding: 1.3rem;
 			}
 		}
 	}

@@ -10,7 +10,7 @@ const ProductColorOptions = ( props ) => {
             <div className='colors__options'>
                 {colorOptions.map(el => {
                     return <button className={el.id === selectedProductId ? "color-option selected" : "color-option"}
-                                   onClick={() => navigate("/product/" + el.id)}
+                                   onClick={() => navigate("/shop/" + el.id)}
                                    style={{ backgroundColor: el.color }}
                                    key={el.color}/>
                 })}

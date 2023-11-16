@@ -3,6 +3,7 @@ import ProductInfo from "../ui/productPage/ProductInfo";
 import ProductGallery from "../ui/productPage/ProductGallery";
 import ProductReviews from "../ui/productPage/ProductReviews";
 import useProduct from "../../hooks/use-product";
+import ProductHeader from "../ui/productPage/ProductHeader";
 
 
 const ProductPage = () => {
@@ -22,10 +23,13 @@ const ProductPage = () => {
     return (
         <div className='product'>
             <div className='product__data'>
+
+                <ProductHeader selectedProduct={selectedProduct} rating={calculateRating()} />
+
                 <ProductGallery images={selectedProduct.images}/>
+
                 <ProductInfo selectedProduct={selectedProduct}
-                             productData={productData}
-                             rating={calculateRating()}/>
+                             productData={productData}/>
             </div>
 
             <ProductReviews reviews={productData.reviews} saveReview={saveReview}/>
