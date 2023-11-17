@@ -20,9 +20,14 @@ export const useShoppingCart = () => {
 
 export const ShoppingCartProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
+
     const [cartItems, setCartItems] = useState(() => {
-        const prevCartItems = JSON.parse(localStorage.getItem('clay-shop-cart'))
-        if (prevCartItems) return prevCartItems
+        const prevCartItems = localStorage.getItem('clay-shop-cart')
+        if (prevCartItems) {
+            return JSON.parse(prevCartItems)
+        } else {
+            return []
+        }
     })
 
     useEffect(() => {
