@@ -7,7 +7,7 @@ const ProductReviewCard = (props) => {
     return (
         <div className='review-card' >
             <h4 className='review-card__author'>
-                {review.author}&nbsp;
+                <span>{review.author}&nbsp;</span>
                 <span>&#60;{review.email}&#62;</span>
             </h4>
 

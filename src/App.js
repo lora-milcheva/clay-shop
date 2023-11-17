@@ -11,14 +11,10 @@ import ContactPage from "./components/pages/ContactPage";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import ProductPage from "./components/pages/ProductPage";
 
-
 import { ShoppingCartProvider } from "./store/shopping-cart-context";
 import { useEffect } from "react";
 
-
-
 function App() {
-
     const location = useLocation();
 
     useEffect(() => {

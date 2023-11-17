@@ -1,6 +1,14 @@
 .cart {
-	position: relative;
+	position: fixed;
 	z-index: $cart-z-index;
+	opacity: 0;
+	visibility: hidden;
+	transition: $transition-main;
+
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+	}
 
 	&__backdrop {
 		position: fixed;

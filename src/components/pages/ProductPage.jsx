@@ -4,6 +4,7 @@ import ProductGallery from "../ui/productPage/ProductGallery";
 import ProductReviews from "../ui/productPage/ProductReviews";
 import useProduct from "../../hooks/use-product";
 import ProductHeader from "../ui/productPage/ProductHeader";
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
 const ProductPage = () => {
@@ -21,20 +22,22 @@ const ProductPage = () => {
     if (errorMessage) return <p>{errorMessage}</p>
 
     return (
-        <div className='product-page product'>
-            <div className='product__data'>
+        <ScrollAnimation animateIn="fadeIn">
+            <div className='product-page product'>
+                <div className='product__data'>
 
-                <ProductHeader selectedProduct={selectedProduct} rating={calculateRating()} />
+                    <ProductHeader selectedProduct={selectedProduct} rating={calculateRating()}/>
 
-                <ProductGallery images={selectedProduct.images}/>
+                    <ProductGallery images={selectedProduct.images}/>
 
-                <ProductInfo selectedProduct={selectedProduct}
-                             productData={productData}/>
+                    <ProductInfo selectedProduct={selectedProduct}
+                                 productData={productData}/>
+                </div>
+
+                <ProductReviews reviews={productData.reviews} saveReview={saveReview}/>
+
             </div>
-
-            <ProductReviews reviews={productData.reviews} saveReview={saveReview}/>
-
-        </div>
+        </ScrollAnimation>
     )
 }
 

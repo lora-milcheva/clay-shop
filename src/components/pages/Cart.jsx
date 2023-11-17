@@ -1,7 +1,8 @@
-import TabGroup from "../ui/TabGroup";
 import { useShoppingCart } from "../../store/shopping-cart-context";
+import { useEffect, useRef } from "react";
+import TabGroup from "../ui/TabGroup";
 import CartItem from "../ui/cart/CartItem";
-import { useEffect } from "react";
+
 
 const cartTabsData = [
     {
@@ -25,21 +26,32 @@ const cartTabsData = [
 
 const Cart = () => {
     const { isOpen, closeCart, cartItems, totalPrice } = useShoppingCart()
+    const cartRef = useRef()
 
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            window.requestAnimationFrame(() => {
+                cartRef.current?.classList.add('visible')
+            });
         } else {
             document.body.style.overflow = 'unset';
         }
     }, [isOpen])
+
+    const close = () => {
+        window.requestAnimationFrame(() => {
+            cartRef.current?.classList.remove('visible')
+        });
+        setTimeout(() => closeCart(), 200)
+    }
 
     const isEmpty = cartItems.length === 0
 
     if (!isOpen) return
 
     return (
-        <div className='cart'>
+        <div className='cart' ref={cartRef}>
             <div className='cart__backdrop'/>
 
             <div className='cart__content'>
@@ -56,7 +68,7 @@ const Cart = () => {
                 }
 
                 <div className='cart__footer'>
-                    <button className='btn btn--default' onClick={closeCart}>To shop</button>
+                    <button className='btn btn--default' onClick={() => close()}>To shop</button>
                     <button className='btn btn--primary' disabled={isEmpty}>Continue</button>
                 </div>
             </div>

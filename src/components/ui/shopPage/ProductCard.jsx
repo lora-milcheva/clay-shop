@@ -18,11 +18,12 @@ const ProductCard = (props) => {
                 <div className='card__price'>
                     $ {Number(price).toFixed(2)}
                 </div>
+
+                <div className='card__cta'>
+                    <button className='btn btn--secondary'>View</button>
+                </div>
             </div>
 
-            <div className='card__cta'>
-                <button className='btn btn--secondary'>View</button>
-            </div>
         </Link>
     )
 
