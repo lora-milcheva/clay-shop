@@ -3,6 +3,18 @@
 	grid-template-columns: 1fr 6fr;
 	background-color: $color-white;
 
+	@include respond(phone) {
+		grid-template-columns: 1fr;
+	}
+
+	&__filters {
+		padding: 2rem;
+
+		@include respond(phone) {
+			padding: 1rem 2rem 0;
+		}
+	}
+
 	&__products {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);

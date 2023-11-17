@@ -11,15 +11,21 @@ import ContactPage from "./components/pages/ContactPage";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import ProductPage from "./components/pages/ProductPage";
 
-import { ShoppingCartProvider } from "./store/shopping-cart-context";
+import { ShoppingCartProvider, useShoppingCart } from "./store/shopping-cart-context";
 import { useEffect } from "react";
 
 function App() {
     const location = useLocation();
+    const { cartItems, setCartItems } = useShoppingCart()
 
     useEffect(() => {
         window.scrollTo({top:0, left: 0, behaviour: 'smooth'})
     }, [location])
+
+    useEffect(() => {
+        const prevCartItems = JSON.parse(localStorage.getItem('clay-shop-cart'))
+        if (prevCartItems) setCartItems(prevCartItems)
+    }, [])
 
     return (
         <ShoppingCartProvider>

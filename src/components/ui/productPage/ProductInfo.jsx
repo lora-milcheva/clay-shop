@@ -44,7 +44,8 @@ const ProductInfo = (props) => {
 
     const handleAddToCartClick = () => {
         if (!selectedSize || !availableSizes.includes(selectedSize)) {
-            setError()
+            setErrorMessage('Please select your size.')
+            setTimeout(() => clearError(), 4000)
             return
         }
 
@@ -56,11 +57,9 @@ const ProductInfo = (props) => {
         openCart()
     }
 
-    const setError = () => {
-        setErrorMessage('Please select your size.')
-        setTimeout(() => {
-            setErrorMessage('')
-        }, 2000)
+
+    const clearError = () => {
+        setErrorMessage('')
     }
 
 
@@ -69,8 +68,10 @@ const ProductInfo = (props) => {
             <TabGroup tabsData={tabsData}/>
 
             <div className='product-info__options'>
-                <ProductSizes availableSizes={availableSizes} selectedSize={selectedSize}
-                              saveSelectedSize={saveSelectedSize}/>
+                <ProductSizes availableSizes={availableSizes}
+                              selectedSize={selectedSize}
+                              saveSelectedSize={saveSelectedSize}
+                              clearError={clearError}/>
                 <ProductColorOptions colorOptions={colorOptions}
                                      selectedProductId={id}/>
             </div>
@@ -82,7 +83,7 @@ const ProductInfo = (props) => {
                     ${Number(price).toFixed(2)}
                 </div>
                 <div className='product-info__cta'>
-                    <button className='btn btn--primary' onClick={() => decreaseItemQuantity( id, selectedSize )}>
+                    <button className='btn btn--primary' onClick={() => decreaseItemQuantity(id, selectedSize)}>
                         Shop Now
                     </button>
                     <button className='btn btn--default' onClick={handleAddToCartClick}>
@@ -90,7 +91,6 @@ const ProductInfo = (props) => {
                     </button>
                 </div>
             </div>
-
         </div>
     )
 }

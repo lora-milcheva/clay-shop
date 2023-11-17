@@ -16,6 +16,7 @@ const useProduct = () => {
 
     useEffect(() => {
         (async () => {
+            setIsLoading(true)
             try {
                 const response = await loadProductData(id)
                 const data = response[0]

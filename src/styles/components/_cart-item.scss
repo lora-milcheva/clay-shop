@@ -21,6 +21,18 @@
 		width: 7rem;
 		overflow: hidden;
 		border-radius: $border-radius-big;
+
+		@include respond(phone) {
+			height: 10rem;
+			width: 10rem;
+		}
+	}
+
+	&__size {
+		@include respond(phone) {
+			display: inline-block;
+			margin-right: 2rem;
+		}
 	}
 
 	&__info {
@@ -41,10 +53,20 @@
 	}
 
 	&__color {
-		display: inline-block;
-		width: 1.6rem;
-		height: 1.6rem;
-		border-radius: $border-radius-tiny;
+
+		& span {
+			display: inline-block;
+			width: 1.6rem;
+			height: 1.6rem;
+			transform: translateY(20%);
+			margin-left: .5rem;
+			border-radius: $border-radius-tiny;
+		}
+
+
+		@include respond(phone) {
+			display: inline-block;
+		}
 	}
 
 	.btn {
@@ -83,7 +105,7 @@
 
 		@include respond(phone) {
 			position: absolute;
-			bottom: 3rem;
+			bottom: 1rem;
 			right: 0;
 		}
 	}

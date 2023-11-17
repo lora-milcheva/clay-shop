@@ -1,6 +1,11 @@
-
 const ProductSizes = (props) => {
-    const { availableSizes, selectedSize, saveSelectedSize } = props
+    const { availableSizes, selectedSize, saveSelectedSize, clearError } = props
+
+    const handleClick = (el) => {
+        clearError()
+        saveSelectedSize(el)
+
+    }
 
     return (
         <div className='sizes'>
@@ -11,9 +16,9 @@ const ProductSizes = (props) => {
 
             <div className='sizes__options'>
                 {availableSizes.map(el =>
-                    <button onClick={() => saveSelectedSize(el)}
-                            className={selectedSize === el ? 'btn btn--primary' : 'btn btn--default'}
-                            key={el}>
+                    <button onClick={() => handleClick(el)}
+                            key={el}
+                            className={selectedSize === el ? 'btn btn--primary' : 'btn btn--default'}>
                         {el}
                     </button>)}
             </div>

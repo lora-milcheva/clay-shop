@@ -21,6 +21,11 @@
 		}
 	}
 
+	@include respond(phone) {
+		border: 10px solid transparent;
+		margin-bottom: 3rem;
+	}
+
 
 	&__image {
 	}

@@ -9,6 +9,7 @@ export const ShoppingCartContext = createContext({
     increaseItemQuantity: () => {},
     decreaseItemQuantity: () => {},
     removeFromCart: () => {},
+    setCartItems: () => {},
     numberOfProductsInCart: Number,
     totalPrice: Number
 })
@@ -19,11 +20,15 @@ export const useShoppingCart = () => {
 
 export const ShoppingCartProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState(() => {
+        const prevCartItems = JSON.parse(localStorage.getItem('clay-shop-cart'))
+        if (prevCartItems) return prevCartItems
+    })
 
     useEffect(() => {
-        console.log(cartItems)
+        localStorage.setItem('clay-shop-cart', JSON.stringify(cartItems))
     }, [cartItems])
+
 
     const numberOfProductsInCart = cartItems.reduce(
         (quantity, item) => item.quantity + quantity,
@@ -109,7 +114,8 @@ export const ShoppingCartProvider = ({ children }) => {
             decreaseItemQuantity,
             removeFromCart,
             numberOfProductsInCart,
-            totalPrice
+            totalPrice,
+            setCartItems
         }}>
             {children}
         </ShoppingCartContext.Provider>

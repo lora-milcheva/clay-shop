@@ -32,7 +32,7 @@ const PRODUCTS = [
                 name: 'Green Valentino dress with tulle',
                 label: 'popular',
                 description: 'Another description goes here',
-                colorHEX: '#32E0C4',
+                colorHEX: '#4b567a',
                 price: '1355.00',
                 images: ['../images/dress_03_01.jpg', '../images/dress_03_02.jpg'],
                 sizes: [{ S: 8 }, { M: 2 }],
